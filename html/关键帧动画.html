@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>关键帧动画</title>
+<style>
+body{ background-image:url(../images/home-bg.gif);}
+a{ display:block; width:200px; height:50px; line-height:50px; color:#fff; font-size:24px; text-decoration:none; position:absolute; left:860px; margin-top:50px; background-color:#D43F52; text-align:center; border-radius:8px;}
+
+.box{ width:500px; height:500px; background:#EBB5F3; position:absolute; left:0; top:0; right:0; bottom:0; margin:auto; border-radius:10px;}
+.ball{ width:100px; height:100px; border-radius:50%; position:absolute; animation:move 8s infinite forwards; border-radius:10px;}
+.ball img{ width:100%; border-radius:10px;}
+.ball1{ width:100px; height:100px; border-radius:50%; position:absolute; animation:move 8s 2s infinite forwards; border-radius:10px;}
+.ball1 img{ width:100%; border-radius:10px;}
+.ball2{ width:100px; height:100px; border-radius:50%; position:absolute; animation:move 8s 4s infinite forwards; border-radius:10px;}
+.ball2 img{ width:100%; border-radius:10px;}
+.ball3{ width:100px; height:100px; border-radius:50%; position:absolute; animation:move 8s 6s infinite forwards; border-radius:10px;}
+.ball3 img{ width:100%; border-radius:10px;}
+
+@keyframes move{
+	0%{ left:0px; top:0px;}
+	25%{ left:400px; top:0px;}
+	50%{ left:400px; top:400px;}
+	75%{ left:0px; top:400px;}
+	100%{ left:0px; top:0px;}	
+}
+</style>
+
+</head>
+
+<body>
+<a href="../index.html">返回首页</a>
+<div class="box">
+	<div class="ball"><img src="../images/489489_03.jpg" /></div>
+    <div class="ball1"><img src="../images/489489_03.jpg" /></div>
+    <div class="ball2"><img src="../images/489489_03.jpg" /></div>
+    <div class="ball3"><img src="../images/489489_03.jpg" /></div>
+</div>
+
+</body>
+</html>

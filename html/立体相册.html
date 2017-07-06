@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>立体相册</title>
+<style>
+body{ height:2000px; background-image:url(../images/home-bg.gif);}
+a{ display:block; width:200px; height:50px; line-height:50px; color:#fff; font-size:24px; text-decoration:none; position:absolute; left:860px; margin-top:50px; background-color:#D43F52; text-align:center; border-radius:8px;}
+
+.photo{ width:980px; height:500px; transform-style:preserve-3d; perspective:1500px; transform:rotateX(-30deg); border-radius:8px; }
+.center{ position:absolute; left:0; top:0; right:0; bottom:0; margin:auto;}
+.item{ position:absolute; left:0; top:0; border-radius:8px; transition:all 1s; transform-origin:center bottom;}
+.prev, .next{ position:absolute; top:520px;}
+.next{ left:100px;}
+.prev{ left:50px;}
+</style>
+
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	var photo=$(".photo");
+	var w=photo.width();
+	var h=photo.height();
+	var num=5;
+	var state=true;
+	for(var i=0;i<num;i++){
+		var z=i*(-50)
+		$("<div class='item'></div>").width(w).height(h).css({"background-image":"url(../images/"+i+".jpg)","transform":"translateZ("+z+"px)"}).appendTo(photo)	
+	}	
+	$(".next").click(function(){
+		if(!state) return false
+		state=false
+		var first=$(".item").eq(0);
+		first.css({"transform":"rotateX(180deg)","opacity":0.1})	
+		setTimeout(function(){
+			first.css({"transform":"rotateX(0deg)","transform":"translateZ("+num*(-50)+"px)","opacity":1}).appendTo(photo)
+			setTimeout(set,500)
+		},1000)
+		
+	})
+	
+	$(".prev").click(function(){
+		if(!state) return false
+		state=false
+		get()
+		var last=$(".item").eq(num-1);
+		last.css({"transform":"rotateX(-180deg)","opacity":0.1})
+		setTimeout(function(){
+			last.css({"transform":"rotateX(0deg)","opacity":1})
+			setTimeout(function(){
+				last.prependTo(photo);
+				set();
+			},500)	
+		},500)
+	})
+
+	function set(){
+		$(".item").each(function(index, element) {
+			var z=index*(-50);
+			$(this).css({"transform":"translateZ("+z+"px)"})
+		});
+		state=true
+	}
+	
+
+	function get(){
+		$(".item").each(function(index) {
+			var z=(index+1)*(-50);
+			$(this).css({"transform":"translateZ("+z+"px)"}).appendTo(photo)
+		});
+	}
+})
+
+
+</script>
+
+
+</head>
+
+<body>
+<a href="../index.html">返回首页</a>
+<div class="photo center">
+	<button type="button" class="prev">prev</button>
+	<button type="button" class="next">next</button>    
+</div>
+
+</body>
+</html>

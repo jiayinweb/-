@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>变形动画</title>
+<style>
+body{ background-image:url(../images/home-bg.gif);}
+a{ display:block; width:200px; height:50px; line-height:50px; color:#fff; font-size:24px; text-decoration:none; position:absolute; left:860px; margin-top:50px; background-color:#D43F52; text-align:center; border-radius:8px;}
+
+ul{ list-style:none; width:800px; height:300px; position:absolute; left:0; top:0; right:0; bottom:0; margin:auto;}
+li{ width:100px; height:100px; margin-left:50px; background:#EBAFF1; float:left; transition:transform 1s;}
+li:nth-child(1):hover{ transform:rotate(90deg);}     /*旋转 负数逆时针旋转*/
+li:nth-child(2):hover{ transform:scale(1.5,1.7);}    /*横向纵向缩放*/
+li:nth-child(3):hover{ transform:skew(30deg,40deg);} /*横向纵向倾斜角度*/
+li:nth-child(4):hover{ transform:translateX(50px);}  /*横向平移*/
+li:nth-child(5):hover{ transform:translateY(50px);}  /*纵向平移*/
+.click{ width:150px; height:50px; border:1px solid pink; text-align:center; line-height:50px; color:#fff; position:absolute;}
+</style>
+
+</head>
+
+<body>
+<div class="click">鼠标悬停粉色方框</div>
+<a href="../index.html">返回首页</a>
+
+<ul>
+	<li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+</body>
+</html>
